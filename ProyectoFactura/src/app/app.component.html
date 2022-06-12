@@ -1,0 +1,77 @@
+<div class="content" role="main">
+  <h1 class="text-center">{{ title }}</h1>
+
+  <hr />
+
+
+  <div class="container">
+    <div class="center">
+      <mat-card>
+        <label>Cliente</label><br>
+        <select matNativeControl [(ngModel)]="selected" appearance="fill">
+          <option *ngFor="let currency of currencies" [value]="currency.id_cliente">{{currency.nombre}}</option>
+        </select>
+
+        <br>
+        <hr>
+
+        <label>Producto</label><br>
+        <select matNativeControl [(ngModel)]="selected1">
+          <option *ngFor="let currency of currencies1" aria-placeholder="Seleccione producto"
+            [value]="currency.id_producto">{{currency.nombre}}</option>
+        </select>
+
+        <br>
+        <hr>
+        <label>Cantidad</label><br>
+        <input placeholder="Ingrese cantidad" [(ngModel)]="cantidad" (ngModelChange)="calcular()">
+        <br>
+        <hr>
+
+
+        <div class="container">
+          <button class="btn btn-success" click=crearFac() type="submit">Agregar</button>
+        </div>
+
+      </mat-card>
+
+
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Item</th>
+            <th scope="col">Valores</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Identificacion</td>
+            <li>
+              {{selected}}
+            </li>
+          </tr>
+          <tr>
+            <td>Nombre</td>
+            <td>{{nombre}}</td>
+          </tr>
+          <tr>
+            <td>Producto</td>
+            <li>
+              {{selected1}}
+            </li>
+          </tr>
+          <tr>
+            <td>Cantidad</td>
+            <td><input [(ngModel)]="cantidad"></td>
+          </tr>
+          <tr>
+            <td>VALOR A PAGAR</td>
+            <td> <input [(ngModel)]="precio"></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
